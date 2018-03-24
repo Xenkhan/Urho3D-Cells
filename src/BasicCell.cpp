@@ -34,14 +34,16 @@ void BasicCell::Delete() {
 
 void BasicCell::Run() {
 	Cell::Run();
-
+	
 	SubscribeToEvent(E_KEYDOWN, URHO3D_HANDLER(BasicCell, OnKeyDown));
+	SubscribeToEvent(E_UPDATE, URHO3D_HANDLER(BasicCell, Update));
 }
 
 void BasicCell::Pause() {
 	Cell::Pause();
 
 	UnsubscribeFromEvent(E_KEYDOWN);
+	UnsubscribeFromEvent(E_UPDATE);
 }
 
 Camera *BasicCell::GetCamera() {
@@ -60,7 +62,8 @@ void BasicCell::OnKeyDown(StringHash type, VariantMap &data) {
 
 	
 	cameraNode_->LookAt(scene_->GetChild("oof")->GetPosition());
+}
 
-
-
+void BasicCell::Update(StringHash type, VariantMap &data){
+	URHO3D_LOGINFO(name);
 }

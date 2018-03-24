@@ -21,11 +21,15 @@ void MenuState::Start() {
 	startBtn_->SetStyleAuto();
 
 
-	SubscribeToEvent(startBtn_, E_CLICKEND, [&](StringHash type, VariantMap &data) {
-		GetSubsystem<StateManager>()->SetState(new GameState(context_));
-	});
+	SubscribeToEvent(startBtn_, E_CLICK, URHO3D_HANDLER(MenuState, OnStart));
 }
 
 void MenuState::Stop() {
 	uiRoot_->RemoveAllChildren();
+}
+
+
+void MenuState::OnStart(StringHash type, VariantMap &data){
+		context_->GetSubsystem<StateManager>()->SetState(new GameState(context_));
+	
 }

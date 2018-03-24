@@ -36,7 +36,13 @@ public:
 	virtual void Stop() override {}
 
 
-
+	virtual void OnKeyDown(StringHash type, VariantMap &data){
+		int key = data[KeyDown::P_KEY].GetInt();
+		
+		if(key == KEY_ESCAPE){
+			engine_->Exit();
+		}
+	}
 
 
 };

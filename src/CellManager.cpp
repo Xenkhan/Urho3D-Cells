@@ -39,7 +39,7 @@ void CellManager::LoadCell(StringHash name, Cell *cell) {
 		return;
 	}
 	cells_[name] = WeakPtr<Cell>(cell);
-
+	cells_[name]->SetName(String(name));
 	if (!HasCell(name)) return;
 	cells_[name]->Create();
 }

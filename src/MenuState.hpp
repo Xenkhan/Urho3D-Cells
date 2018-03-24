@@ -2,6 +2,8 @@
 #include "Dependencies.hpp"
 #include "State.hpp"
 
+
+
 class MenuState : public State {
 	URHO3D_OBJECT(MenuState, State)
 public:
@@ -10,5 +12,8 @@ public:
 	virtual void Stop() override;
 	
 protected:
+	virtual void OnStart(StringHash type, VariantMap &data);
+	
+
 	Button *startBtn_;
 };

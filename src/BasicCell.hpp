@@ -17,7 +17,8 @@ public:
 
 private:
 	virtual void OnKeyDown(StringHash type, VariantMap &data);
-
+	virtual void Update(StringHash type, VariantMap &data);
+	
 	Node *cameraNode_;
 	Node *zoneNode_;
 };

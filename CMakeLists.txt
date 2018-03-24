@@ -1,4 +1,7 @@
 # Set CMake minimum version and CMake policy required by Urho3D-CMake-common module
+
+set (CMAKE_CXX_STANDARD 11)
+
 if (WIN32)
     cmake_minimum_required (VERSION 3.2.3)      # Going forward all platforms will use this as minimum version
 else ()
@@ -22,7 +25,7 @@ project (EldritchOrangeCrisis)
 # Set CMake modules search path
 set (CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/CMake/Modules)
 # Include Urho3D Cmake common module
-include (Urhocommon)
+include (UrhoCommon)
 # Define target name
 set (TARGET_NAME OrangeCrisis)
 # Define source files
