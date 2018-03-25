@@ -9,9 +9,15 @@ void BasicCell::Create() {
     
     root_ = uiRoot_->CreateChild<UIElement>();
     
-    text_ = root_->CreateChild<Text>();
-    text_->SetFont(cache_->GetResource<Font>("Fonts/Anonymous Pro.ttf"));
+    Font *font = cache_->GetResource<Font>("Fonts/Anonymous Pro.ttf");
     
+    text_ = root_->CreateChild<Text>();
+    text_->SetFont(font);
+    
+    Text *cellText_ = root_->CreateChild<Text>();
+    cellText_->SetFont(font);
+    cellText_->SetPosition(0, 12);
+    cellText_->SetText("Cell: " + name_);
     
     scene_ = new Scene(context_);
     scene_->CreateComponent<Octree>();
@@ -115,8 +121,20 @@ void BasicCell::PostUpdate(StringHash type, VariantMap& data){
     text_->SetText("Raycast: " + name);
     
     if(input_->GetKeyPress(KEY_E)){
-        URHO3D_LOGINFO("Interacted with Object.");
-        GetSubsystem<CellManager>()->SetActiveCell("02");
+        
+        if(name_ == String("01")){
+            
+            GetSubsystem<CellManager>()->SetActiveCell("02");
+        }
+        else if(name_ == String("02")){
+           
+            GetSubsystem<CellManager>()->SetActiveCell("01");
+        }
+        
+        
+        
+        
+        
     }
     
     

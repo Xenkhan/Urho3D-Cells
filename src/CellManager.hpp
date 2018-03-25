@@ -12,7 +12,7 @@ public:
 
 	virtual void RemoveCell(StringHash name);
 
-	virtual void LoadCell(StringHash name, Cell *cell);
+	virtual void LoadCell(String name, Cell *cell);
 
 	virtual void SetActiveCell(StringHash name);
 

@@ -33,15 +33,17 @@ void CellManager::RemoveCell(StringHash name) {
 	cells_.Erase(name);
 }
 
-void CellManager::LoadCell(StringHash name, Cell *cell) {
+void CellManager::LoadCell(String name, Cell *cell) {
 	if (HasCell(name)) {
 		URHO3D_LOGDEBUG("CELL ERROR: " + String(name) + " ALREADY EXISTS");
 		return;
 	}
-	cells_[name] = WeakPtr<Cell>(cell);
-	cells_[name]->SetName(String(name));
-	if (!HasCell(name)) return;
-	cells_[name]->Create();
+        StringHash hname(name);
+        
+	cells_[hname] = WeakPtr<Cell>(cell);
+	cells_[hname]->SetName(name);
+	if (!HasCell(hname)) return;
+	cells_[hname]->Create();
 }
 
 void CellManager::SetActiveCell(StringHash name) {

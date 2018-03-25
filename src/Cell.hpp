@@ -5,7 +5,7 @@
 class Cell : public Object, public SubsystemLatch {
 	URHO3D_OBJECT(Cell, Object)
 public:
-	Cell(Context *context) : Object(context), SubsystemLatch(context), name("Cell") {}
+	Cell(Context *context) : Object(context), SubsystemLatch(context), name_("Cell") {}
 	virtual void Create() = 0;
 	virtual void Delete() = 0;
 
@@ -20,14 +20,14 @@ public:
 	virtual Camera *GetCamera() = 0;
 
 	virtual void SetName(String name) {
-		this->name = name;
+		this->name_ = name;
 	}
 	virtual String GetName() {
-		return name;
+		return name_;
 	}
 protected:
 	Scene *scene_;
 
-	String name;
+	String name_;
 
 };
