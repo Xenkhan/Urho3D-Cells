@@ -18,7 +18,14 @@ public:
 private:
 	virtual void OnKeyDown(StringHash type, VariantMap &data);
 	virtual void Update(StringHash type, VariantMap &data);
-	
+	virtual void PostUpdate(StringHash type, VariantMap &data);
+        
 	Node *cameraNode_;
 	Node *zoneNode_;
+        
+        
+        UIElement *root_;
+        Text *text_;
+        
+        Vector3 camRot_;
 };
